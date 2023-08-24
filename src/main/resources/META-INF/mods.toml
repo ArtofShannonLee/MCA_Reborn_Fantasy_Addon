@@ -1,0 +1,41 @@
+modLoader="javafml"
+
+loaderVersion="[39,)"
+
+license="MIT"
+
+[[mods]]
+
+modId="fantasymcar"
+
+version="${file.jarVersion}"
+
+displayName="Fantasy MCAR"
+
+logoFile="image.png"
+
+credits="Thank you to the creators of Minecraft Comes Alive and MCA: Reborn; these Mods inspired me to learn to code. I was also influenced by the models and textures in Dr. Zhark's Mo' Creatures, Feywild, Greek Mythology and Grimoire of Gaia."
+
+authors="Shannon Tuscany Lee"
+
+description='''
+BLA
+BLA
+BLA
+'''
+
+[[dependencies.fantasymcar]]
+
+    modId="forge"
+    mandatory=true
+    versionRange="[39,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.fantasymcar]]
+    modId="minecraft"
+    mandatory=true
+
+    versionRange="[1.18.1,1.19)"
+    ordering="NONE"
+    side="BOTH"
