@@ -1,6 +1,6 @@
 modLoader="javafml"
 
-loaderVersion="[39,)"
+loaderVersion="[40,)"
 
 license="MIT"
 
@@ -28,7 +28,7 @@ BLA
 
     modId="forge"
     mandatory=true
-    versionRange="[39,)"
+    versionRange="[40,)"
     ordering="NONE"
     side="BOTH"
 
