@@ -3,6 +3,7 @@ buildscript {
         // Only for Gradle plugins - other repositories go in repository block below
         maven { url = 'https://maven.minecraftforge.net' }
         maven { url = 'https://maven.parchmentmc.org' }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         mavenCentral()
     }
     dependencies {
@@ -98,16 +99,22 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {
-        url "https://cursemaven.com" // This is CurseMaven
+        name = 'CurseMaven' // Needed for MCAR
+        url "https://cursemaven.com"
         content {
             includeGroup "curse.maven"
         }
+    }
+    maven {
+        name = 'GeckoLib' // Needed for Models
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
     }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.0.5'
     implementation fg.deobf("curse.maven:mca-535291:4461660") // This is Minecraft Comes Alive: Reborn
+    implementation fg.deobf('software.bernie.geckolib:geckolib-1.18-forge:3.0.13')
 }
 jar {
     manifest {
