@@ -35,10 +35,7 @@ public class FantasyMCAR
 
     private void clientsetup(final FMLCommonSetupEvent event)
     {
-        EntityRenderers.register (ModEntityTypes.SLIMVILLAGER.get (), SlimVillagerEntityFMCARenderer::new);
+        EntityRenderers.register(ModEntityTypes.SLIMVILLAGER.get (), SlimVillagerEntityFMCARenderer::new);
 
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
 }

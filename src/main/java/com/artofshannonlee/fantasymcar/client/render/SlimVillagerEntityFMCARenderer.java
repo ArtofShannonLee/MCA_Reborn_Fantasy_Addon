@@ -1,35 +1,26 @@
 package com.artofshannonlee.fantasymcar.client.render;
 
-import com.artofshannonlee.fantasymcar.FantasyMCAR;
-import com.artofshannonlee.fantasymcar.client.model.SlimVillagerEntityModelFMCA;
-import com.artofshannonlee.fantasymcar.entity.custom.SlimVillagerEntity;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
+import forge.net.mca.client.model.VillagerEntityModelMCA;
+import forge.net.mca.client.render.VillagerLikeEntityMCARenderer;
+import forge.net.mca.client.render.layer.ClothingLayer;
+import forge.net.mca.client.render.layer.FaceLayer;
+import forge.net.mca.client.render.layer.HairLayer;
+import forge.net.mca.client.render.layer.SkinLayer;
+import forge.net.mca.entity.VillagerEntityMCA;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.resources.ResourceLocation;
-import org.jetbrains.annotations.NotNull;
-import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
-public class SlimVillagerEntityFMCARenderer extends GeoEntityRenderer<SlimVillagerEntity> {
-    public SlimVillagerEntityFMCARenderer(EntityRendererProvider.Context renderManager) {
-        super ( renderManager, new SlimVillagerEntityModelFMCA ());
-        this.shadowRadius = 0.5f;
+public class SlimVillagerEntityFMCARenderer extends VillagerLikeEntityMCARenderer {
+    public SlimVillagerEntityFMCARenderer(EntityRendererProvider.Context ctx, VillagerEntityModelMCA model) {
+        super (ctx, createModel(VillagerEntityModelMCA.bodyData( CubeDeformation.NONE)).hideWears());
+        this.addLayer(new SkinLayer (this, (VillagerEntityModelMCA)this.model));
+        this.addLayer(new FaceLayer (this, createModel(VillagerEntityModelMCA.bodyData(new CubeDeformation(0.01F))).hideWears(), "normal"));
+        this.addLayer(new ClothingLayer (this, createModel(VillagerEntityModelMCA.bodyData(new CubeDeformation(0.0625F))), "normal"));
+        this.addLayer(new HairLayer (this, createModel(VillagerEntityModelMCA.hairData(new CubeDeformation(0.125F)))));
     }
-
-    @Override
-    public ResourceLocation getTextureLocation(@NotNull SlimVillagerEntity instance) {
-        return new ResourceLocation ( FantasyMCAR.MOD_ID, "textures/entity/slimvillager/slimvillager.png");
+    private static VillagerEntityModelMCA<VillagerEntityMCA> createModel(MeshDefinition data) {
+        return new VillagerEntityModelMCA( LayerDefinition.create(data, 64, 64).bakeRoot());
     }
-
-    @Override
-    public RenderType getRenderType(SlimVillagerEntity animatable, float partialTicks, PoseStack stack,
-                                    MultiBufferSource renderTypeBuffer, VertexConsumer vertexBuilder, int packedLightIn,
-                                    ResourceLocation textureLocation) {
-        return super.getRenderType ( animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation );
-
-    }
-
-
 }
