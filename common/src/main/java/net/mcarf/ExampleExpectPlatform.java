@@ -1,4 +1,4 @@
-package net.examplemod;
+package net.mcarf;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.platform.Platform;

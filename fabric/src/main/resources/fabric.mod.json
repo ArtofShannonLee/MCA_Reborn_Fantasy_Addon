@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "mcarf",
   "version": "${version}",
-  "name": "Example Mod",
+  "name": "MCA: Reborn Fantasy Addon",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
-    "Me!"
+    "'ArtofShannonLee', 'Xaidee' & 'AverageTurtle.'"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "Insert License Here",
-  "icon": "assets/examplemod/icon.png",
+  "icon": "assets/mcarf/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.examplemod.fabric.ExampleModFabric"
+      "net.mcarf.fabric.MCAFantasyFabric"
     ]
   },
   "depends": {

@@ -1,12 +1,12 @@
-package net.examplemod.quilt;
+package net.mcarf.quilt;
 
-import net.examplemod.ExampleMod;
+import net.mcarf.MCARFantasy;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 
-public class ExampleModQuilt implements ModInitializer {
+public class MCARFantasyQuilt implements ModInitializer {
     @Override
     public void onInitialize(ModContainer mod) {
-        ExampleMod.init();
+        MCARFantasy.init();
     }
 }

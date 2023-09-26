@@ -1,6 +1,6 @@
-package net.examplemod.fabric;
+package net.mcarf.fabric;
 
-import net.examplemod.ExampleExpectPlatform;
+import net.mcarf.ExampleExpectPlatform;
 import org.quiltmc.loader.api.QuiltLoader;
 
 import java.nio.file.Path;
