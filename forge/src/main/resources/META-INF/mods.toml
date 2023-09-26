@@ -33,3 +33,17 @@ mandatory = true
 versionRange = "[6.5.77,)"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.mcarf]]
+modId = "mca"
+mandatory = true
+versionRange = "[7.5.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.mcarf]]
+modId = "gekolib"
+mandatory = true
+versionRange = "[3.1.40,)"
+ordering = "AFTER"
+side = "BOTH"

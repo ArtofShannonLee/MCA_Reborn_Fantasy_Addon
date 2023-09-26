@@ -24,6 +24,19 @@ publishing {
 
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
+        mavenCentral()
+        google()
         // Add repositories to publish to here.
+        maven {
+            name = 'CurseMaven' // Needed for MCAR
+            url "https://cursemaven.com"
+            content {
+                includeGroup "curse.maven"
+            }
+        }
+        maven {
+            name = 'GeckoLib' // Needed for Models
+            url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        }
     }
 }

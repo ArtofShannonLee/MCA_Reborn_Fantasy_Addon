@@ -84,6 +84,9 @@ publishing {
 
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
-        // Add repositories to publish to here.
+    }
+    dependencies {
+        modImplementation ("curse.maven:mca-535291:4747298")// This is Minecraft Comes Alive: Reborn
+        modImplementation ('software.bernie.geckolib:geckolib-1.19-forge:3.1.40')  // This is Gekolib
     }
 }
