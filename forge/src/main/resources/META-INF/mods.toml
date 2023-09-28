@@ -42,7 +42,7 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.mcarf]]
-modId = "gekolib"
+modId = "geckolib3"
 mandatory = true
 versionRange = "[3.1.40,)"
 ordering = "AFTER"

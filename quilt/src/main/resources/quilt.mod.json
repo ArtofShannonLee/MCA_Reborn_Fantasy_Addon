@@ -39,6 +39,14 @@
       {
         "id": "architectury",
         "version": ">=6.5.77"
+      },
+      {
+        "id": "mca",
+        "version": ">=3.1.40"
+      },
+      {
+        "id": "geckolib3",
+        "version": ">=3.1.40"
       }
     ]
   }
