@@ -12,6 +12,8 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury:${rootProject.architectury_version}"
+    compileOnly("software.bernie.geckolib:geckolib-fabric-1.19:${rootProject.geckolib_version}")  // This is Gekolib
+
     //modImplementation "curse.maven:mca-535291:${rootProject.mca_version}"// This is Minecraft Comes Alive: Reborn
 }
 

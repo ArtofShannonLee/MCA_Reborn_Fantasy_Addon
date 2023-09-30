@@ -37,7 +37,7 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionQuilt")) { transitive false }
 
     //modImplementation ("curse.maven:mca-535291:4747298")// This is Minecraft Comes Alive: Reborn
-    modImplementation ("software.bernie.geckolib:geckolib-quilt-1.19:${geckolib_version_quilt}")  // This is Gekolib
+    modImplementation("software.bernie.geckolib:geckolib-quilt-1.19:${rootProject.geckolib_version}")  // This is Gekolib
 }
 
 processResources {
