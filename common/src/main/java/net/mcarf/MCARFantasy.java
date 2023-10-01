@@ -10,11 +10,18 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import software.bernie.geckolib3.GeckoLib;
 
 import java.util.function.Supplier;
 
 public class MCARFantasy {
     public static final String MOD_ID = "mcarf";
+    // TODO(Sam) Remove this note
+    // NOTE(Sam) this logger will write to the console and the log file. This will also make it clear to users what mod is logging.
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
     // We can use this if we don't want to use DeferredRegister
     public static final Supplier<Registries> REGISTRIES = Suppliers.memoize(() -> Registries.get(MOD_ID));
     // Registering a new creative tab
@@ -26,8 +33,9 @@ public class MCARFantasy {
             new Item(new Item.Properties().tab( MCARFantasy.EXAMPLE_TAB)));
     
     public static void init() {
+        GeckoLib.initialize();
         ITEMS.register();
-        
-        System.out.println(ExampleExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
+
+        LOGGER.info(ExampleExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
     }
 }
