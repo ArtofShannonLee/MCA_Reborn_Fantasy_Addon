@@ -1,6 +1,6 @@
 plugins {
     id "architectury-plugin" version "3.4-SNAPSHOT"
-    id "dev.architectury.loom" version "1.1-SNAPSHOT" apply false
+    id "dev.architectury.loom" version "1.3-SNAPSHOT" apply false
 
 }
 
@@ -21,7 +21,7 @@ subprojects {
         mappings loom.officialMojangMappings()
         // The following line declares the yarn mappings you may select this one as well.
         // mappings "net.fabricmc:yarn:1.19.2+build.28:v2"
-        modImplementation ("curse.maven:mca-535291:4747298")// This is Minecraft Comes Alive: Reborn
+        modImplementation "curse.maven:minecraft-comes-alive-reborn-535291:4831557"  // This is Minecraft Comes Alive: Reborn
     }
 }
 
@@ -30,7 +30,9 @@ allprojects {
     apply plugin: "architectury-plugin"
     apply plugin: "maven-publish"
 
-    archivesBaseName = rootProject.archives_base_name
+    base {
+        archivesName = rootProject.archives_base_name
+    }
     version = rootProject.mod_version
     group = rootProject.maven_group
 

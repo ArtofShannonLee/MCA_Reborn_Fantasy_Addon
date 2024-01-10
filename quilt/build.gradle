@@ -25,7 +25,10 @@ configurations {
 
 dependencies {
     modImplementation "org.quiltmc:quilt-loader:${rootProject.quilt_loader_version}"
-    modApi "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${rootProject.quilt_fabric_api_version}"
+    modApi("org.quiltmc.quilted-fabric-api:quilted-fabric-api:${rootProject.quilt_fabric_api_version}")
+            {
+                exclude group: 'org.quiltmc', module: 'quilt-loader'
+            }
     // Remove the next few lines if you don't want to depend on the API
     modApi("dev.architectury:architectury-fabric:${rootProject.architectury_version}") {
         // We must not pull Fabric Loader from Architectury Fabric
@@ -37,8 +40,14 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionQuilt")) { transitive false }
 
     //modImplementation ("curse.maven:mca-535291:4747298")// This is Minecraft Comes Alive: Reborn
-    modImplementation("software.bernie.geckolib:geckolib-quilt-1.19:${rootProject.geckolib_version}")  // This is Gekolib
+    //NOTE(Sam): We override the gecklolib version for quilt due to 3.1.40 being broken
+    modApi("software.bernie.geckolib:geckolib-quilt-1.19:3.1.41")  // This is Gekolib
+            {
+                exclude group: 'org.quiltmc', module: 'quilt-loader'
+                exclude group: "org.quiltmc.qsl"
+            }
 }
+
 
 processResources {
     inputs.property "group", rootProject.maven_group
@@ -54,18 +63,13 @@ shadowJar {
     exclude "architectury.common.json"
 
     configurations = [project.configurations.shadowCommon]
-    classifier "dev-shadow"
+    archiveClassifier = "dev-shadow"
 }
 
 remapJar {
     injectAccessWidener = true
     input.set shadowJar.archiveFile
     dependsOn shadowJar
-    classifier null
-}
-
-jar {
-    classifier "dev"
 }
 
 sourcesJar {
