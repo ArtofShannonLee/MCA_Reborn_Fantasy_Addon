@@ -4,23 +4,26 @@
     "mcarf.mixins.json",
     "mcarf-common.mixins.json"
   ],
+  "minecraft": {
+    "environment": "*"
+  },
   "quilt_loader": {
     "group": "${group}",
     "id": "mcarf",
     "version": "${version}",
-    "name": "MCA: Reborn Fantasy Addon",
-    "description": "This is an example description! Tell everyone what your mod is about!",
-    "authors": ["'ArtofShannonLee', 'Xaidee' and Average Turtle."],
-    "contact": {
-      "sources": "https://github.com/architectury/architectury-templates"
+    "metadata": {
+      "name": "MCA: Reborn Fantasy Addon",
+      "description": "This is an example description! Tell everyone what your mod is about!",
+      "authors": ["'ArtofShannonLee', 'Xaidee' and Average Turtle."],
+      "contact": {
+        "sources": "https://github.com/architectury/architectury-templates"
+      }
+
     },
-    "license": "Insert License Here",
-    "icon": "assets/mcarf/icon.png",
     "intermediate_mappings": "net.fabricmc:intermediary",
-    "environment": "*",
     "entrypoints": {
       "init": [
-        "net.mcarf.quilt.MCARFantasy"
+        "net.mcarf.quilt.MCARFantasyQuilt"
       ]
     },
     "depends": [
@@ -39,10 +42,6 @@
       {
         "id": "architectury",
         "version": ">=6.5.77"
-      },
-      {
-        "id": "mca",
-        "version": ">=3.1.40"
       },
       {
         "id": "geckolib3",

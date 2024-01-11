@@ -36,6 +36,6 @@ public class MCARFantasy {
         GeckoLib.initialize();
         ITEMS.register();
 
-        LOGGER.info(ExampleExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
+        LOGGER.info(MCARFantasyExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
     }
 }
