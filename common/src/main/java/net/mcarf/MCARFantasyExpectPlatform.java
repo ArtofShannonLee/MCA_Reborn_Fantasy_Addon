@@ -5,7 +5,7 @@ import dev.architectury.platform.Platform;
 
 import java.nio.file.Path;
 
-public class ExampleExpectPlatform {
+public class MCARFantasyExpectPlatform {
     /**
      * We can use {@link Platform#getConfigFolder()} but this is just an example of {@link ExpectPlatform}.
      * <p>
